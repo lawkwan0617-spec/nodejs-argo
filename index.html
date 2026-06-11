@@ -1,88 +1,257 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-Hant">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>独一无二的网页</title>
-  <style>
-    /* 全局样式 */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NovaVerse - 未來感個人頁</title>
 
-    body {
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      background: linear-gradient(120deg, #f0c27b, #4b1248);
-      color: #fff;
-      text-align: center;
-      overflow: hidden;
-    }
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-    /* 标题 */
-    h1 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-      animation: float 3s ease-in-out infinite;
-    }
+body{
+    font-family: "Segoe UI", sans-serif;
+    min-height:100vh;
+    overflow-x:hidden;
+    background:#050816;
+    color:white;
+}
 
-    /* 按钮 */
-    .button {
-      background: linear-gradient(45deg, #ff6a00, #ee0979);
-      border: none;
-      padding: 15px 30px;
-      font-size: 1.2rem;
-      color: #fff;
-      border-radius: 50px;
-      cursor: pointer;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
+/* 動態背景 */
+.bg{
+    position:fixed;
+    inset:0;
+    z-index:-2;
+    background:
+      radial-gradient(circle at 20% 20%, #7f5af0 0%, transparent 35%),
+      radial-gradient(circle at 80% 30%, #2cb67d 0%, transparent 30%),
+      radial-gradient(circle at 50% 80%, #00c2ff 0%, transparent 40%),
+      #050816;
+}
 
-    .button:hover {
-      transform: scale(1.1);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-    }
+.grid{
+    position:fixed;
+    inset:0;
+    z-index:-1;
+    background-image:
+        linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);
+    background-size:40px 40px;
+}
 
-    /* 漂浮动画 */
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-20px); }
-    }
+header{
+    text-align:center;
+    padding:100px 20px 50px;
+}
 
-    /* 装饰圆点 */
-    .circle {
-      position: absolute;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.2);
-      animation: move 10s linear infinite;
-    }
+.logo{
+    width:120px;
+    height:120px;
+    margin:auto;
+    border-radius:50%;
+    background:linear-gradient(135deg,#7f5af0,#00c2ff);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:42px;
+    font-weight:bold;
+    box-shadow:0 0 40px rgba(0,194,255,.5);
+}
 
-    @keyframes move {
-      0% { transform: translateY(100vh) scale(1); }
-      100% { transform: translateY(-100vh) scale(0.5); }
-    }
-  </style>
+h1{
+    font-size:4rem;
+    margin-top:25px;
+    background:linear-gradient(90deg,#fff,#00c2ff,#7f5af0);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.subtitle{
+    opacity:.8;
+    margin-top:10px;
+    font-size:1.2rem;
+}
+
+.container{
+    width:min(1200px,90%);
+    margin:auto;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:25px;
+    margin:40px 0;
+}
+
+.card{
+    backdrop-filter:blur(15px);
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.15);
+    border-radius:24px;
+    padding:30px;
+    transition:.4s;
+}
+
+.card:hover{
+    transform:translateY(-8px) scale(1.02);
+    box-shadow:0 20px 40px rgba(0,194,255,.2);
+}
+
+.card h3{
+    margin-bottom:15px;
+    color:#00c2ff;
+}
+
+.timeline{
+    margin:60px 0;
+}
+
+.timeline h2{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.line{
+    position:relative;
+    margin-left:20px;
+    border-left:2px solid #00c2ff;
+    padding-left:30px;
+}
+
+.event{
+    margin-bottom:30px;
+}
+
+.event span{
+    color:#00c2ff;
+    font-weight:bold;
+}
+
+.cta{
+    text-align:center;
+    margin:70px 0;
+}
+
+.btn{
+    display:inline-block;
+    padding:16px 40px;
+    border-radius:999px;
+    text-decoration:none;
+    color:white;
+    font-weight:bold;
+    background:linear-gradient(135deg,#7f5af0,#00c2ff);
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:scale(1.08);
+}
+
+footer{
+    text-align:center;
+    padding:40px;
+    opacity:.6;
+}
+
+.counter{
+    font-size:3rem;
+    font-weight:bold;
+    text-align:center;
+    color:#00c2ff;
+    margin-top:10px;
+}
+</style>
 </head>
-<body>
-  <h1>欢迎来到独一无二的网页</h1>
-  <button class="button" onclick="alert('你点击了按钮！')">点击我</button>
 
-  <!-- 随机装饰圆点 -->
-  <script>
-    for(let i=0; i<20; i++){
-      const circle = document.createElement('div');
-      circle.classList.add('circle');
-      circle.style.width = circle.style.height = Math.random() * 50 + 20 + 'px';
-      circle.style.left = Math.random() * 100 + 'vw';
-      circle.style.animationDuration = Math.random() * 10 + 5 + 's';
-      document.body.appendChild(circle);
+<body>
+
+<div class="bg"></div>
+<div class="grid"></div>
+
+<header>
+    <div class="logo">N</div>
+    <h1>NovaVerse</h1>
+    <p class="subtitle">探索創意、科技與未來的交會點</p>
+</header>
+
+<div class="container">
+
+    <section class="cards">
+        <div class="card">
+            <h3>🚀 創新設計</h3>
+            <p>融合未來美學與實用體驗，打造令人難忘的數位產品。</p>
+        </div>
+
+        <div class="card">
+            <h3>⚡ 高效開發</h3>
+            <p>以現代前端技術構建快速、安全且可擴展的網站。</p>
+        </div>
+
+        <div class="card">
+            <h3>🌌 無限想像</h3>
+            <p>讓創意突破框架，把靈感轉化成真實的互動體驗。</p>
+        </div>
+    </section>
+
+    <section class="card">
+        <h3>訪客計數器</h3>
+        <div class="counter" id="counter">0</div>
+    </section>
+
+    <section class="timeline">
+        <h2>發展軌跡</h2>
+
+        <div class="line">
+            <div class="event">
+                <span>2024</span>
+                <p>啟動未來創意實驗室。</p>
+            </div>
+
+            <div class="event">
+                <span>2025</span>
+                <p>建立跨平台數位品牌體驗。</p>
+            </div>
+
+            <div class="event">
+                <span>2026</span>
+                <p>打造 AI 與設計融合的新型互動網站。</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <h2>準備好開始你的下一個創意計畫了嗎？</h2>
+        <br>
+        <a href="#" class="btn">立即探索</a>
+    </section>
+
+</div>
+
+<footer>
+    © 2026 NovaVerse · Unique Static Experience
+</footer>
+
+<script>
+// 訪客數動畫
+let count = 0;
+const target = 8888;
+const counter = document.getElementById("counter");
+
+const timer = setInterval(()=>{
+    count += Math.ceil((target-count)/15);
+
+    if(count >= target){
+        count = target;
+        clearInterval(timer);
     }
-  </script>
+
+    counter.textContent = count.toLocaleString();
+},40);
+</script>
+
 </body>
 </html>
